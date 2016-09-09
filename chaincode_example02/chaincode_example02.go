@@ -44,17 +44,19 @@ func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args [
 
 	// Initialize the chaincode
 	A = args[0]
-	A = A * 10
 	Aval, err = strconv.Atoi(args[1])
 	if err != nil {
 		return nil, errors.New("Expecting integer value for asset holding")
 	}
+
 	B = args[2]
-	B = B * 20
-	Bval, err = strconv.Atoi(args[3])
+  Bval, err = strconv.Atoi(args[3])
 	if err != nil {
 		return nil, errors.New("Expecting integer value for asset holding")
 	}
+  Aval = Aval * 10
+	Bval = Bval * 20
+
 	fmt.Printf("Aval = %d, Bval = %d\n", Aval, Bval)
 
 	// Write the state to the ledger
