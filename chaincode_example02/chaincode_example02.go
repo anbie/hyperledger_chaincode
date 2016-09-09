@@ -54,8 +54,6 @@ func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args [
 	if err != nil {
 		return nil, errors.New("Expecting integer value for asset holding")
 	}
-  Aval = Aval * 2
-	Bval = Bval * 3
 
 	fmt.Printf("Aval = %d, Bval = %d\n", Aval, Bval)
 
