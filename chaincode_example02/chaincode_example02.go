@@ -44,11 +44,13 @@ func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args [
 
 	// Initialize the chaincode
 	A = args[0]
+	A = A * 10
 	Aval, err = strconv.Atoi(args[1])
 	if err != nil {
 		return nil, errors.New("Expecting integer value for asset holding")
 	}
 	B = args[2]
+	B = B * 20
 	Bval, err = strconv.Atoi(args[3])
 	if err != nil {
 		return nil, errors.New("Expecting integer value for asset holding")
@@ -210,7 +212,7 @@ func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args 
 		return nil, errors.New(jsonResp)
 	}
 
-	if Avalbytes != nil {
+	if Avalbytes == nil {
 		jsonResp := "{\"Error\":\"Nil amount for " + A + "\"}"
 		return nil, errors.New(jsonResp)
 	}
