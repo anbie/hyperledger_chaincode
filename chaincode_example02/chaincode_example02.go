@@ -210,7 +210,7 @@ func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args 
 		return nil, errors.New(jsonResp)
 	}
 
-	if Avalbytes == nil {
+	if Avalbytes != nil {
 		jsonResp := "{\"Error\":\"Nil amount for " + A + "\"}"
 		return nil, errors.New(jsonResp)
 	}
@@ -221,7 +221,6 @@ func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args 
 }
 
 func main() {
-	fmt.Printf("Starting Simple chaincode")
 	err := shim.Start(new(SimpleChaincode))
 	if err != nil {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
