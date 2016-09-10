@@ -221,7 +221,7 @@ func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args 
 	fmt.Printf("Query Response:%s\n", jsonResp)
 	return Avalbytes, nil
 }
-
+ 
 func main() {
 	err := shim.Start(new(SimpleChaincode))
 	if err != nil {
