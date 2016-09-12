@@ -81,7 +81,7 @@ func (t *SimpleChaincode) invoke(stub *shim.ChaincodeStub, args []string) ([]byt
 	var err error
 
 	if len(args) != 3 {
-		return nil, errors.New("Incorrect number of arguments. Expecting 3")
+		return nil, errors.New("Incorrect number of arguments. Expecting three and only three arguments")
 	}
 
 	A = args[0]
@@ -221,7 +221,7 @@ func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args 
 	fmt.Printf("Query Response:%s\n", jsonResp)
 	return Avalbytes, nil
 }
- 
+
 func main() {
 	err := shim.Start(new(SimpleChaincode))
 	if err != nil {

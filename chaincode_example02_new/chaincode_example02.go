@@ -79,7 +79,7 @@ func (t *SimpleChaincode) invoke(stub *shim.ChaincodeStub, args []string) ([]byt
 	var err error
 
 	if len(args) != 3 {
-		return nil, errors.New("Incorrect number of arguments. Expecting three arguments")
+		return nil, errors.New("Incorrect number of arguments. Expecting three and only arguments ;)")
 	}
 
 	A = args[0]
